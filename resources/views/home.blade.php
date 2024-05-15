@@ -14,6 +14,7 @@
         
     </head>
     <body>
+        <a href="" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#addModal">Add Student</a>
         <table class="table-bordered">
             <tr>
                 <td>Id</td>
@@ -39,5 +40,6 @@
         </table>
 
        @include('script_file')
+       @include('add_student_modal')
     </body>
 </html>
