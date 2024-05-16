@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,11 @@ class HomeController extends Controller
                 'email.unique' => 'Email already exists'
             ]
         );
+
+        $student = new Student();
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->save();
 
         return redirect()->route('home')->with('success', 'Message sent successfully!');
     }
