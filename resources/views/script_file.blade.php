@@ -8,5 +8,33 @@
     });
 </script>
 <script>
-    // To be added
+    $(document).ready(function() {
+        $('.add_student').click(function(event)
+        {
+            event.preventDefault();
+            var email = $('#email').val();
+            var name = $('#name').val();
+            $.ajax({
+                url: "{{ route('add') }}",
+                method: "POST",
+                data: {
+                    email: email,
+                    name: name
+                },
+                success: function(response) {
+                    alert('Data added successfully');
+                    $('#addModal').modal('hide');
+                    $('#addStudent')[0].reset();
+                },
+                error: function(response) {
+                    var errors = response.responseJSON.errors;
+                    var errMsg = '';
+                    $.each(errors, function(key, value) {
+                        errMsg += '<p class="text-danger">' + value + '</p>';
+                    });
+                    $('.errMsg').html(errMsg);
+                }
+            });
+        });
+    });
 </script>
