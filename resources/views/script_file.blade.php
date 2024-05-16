@@ -25,6 +25,7 @@
                     alert('Data added successfully');
                     $('#addModal').modal('hide');
                     $('#addStudent')[0].reset();
+                    $('.table').load(location.href + ' .table');
                 },
                 error: function(response) {
                     var errors = response.responseJSON.errors;

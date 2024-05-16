@@ -15,22 +15,16 @@
     </head>
     <body>
         <a href="" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#addModal">Add Student</a>
-        <table class="table-bordered">
+        <table class="table table-bordered text-center">
             <tr>
-                <td>Id</td>
                 <td>Name</td>
                 <td>Email</td>
-                <td>Created At</td>
-                <td>Updated At</td>
                 <td>Action</td>
             </tr>
-            @foreach(\App\Models\Student::all() as $user)
+            @foreach($students as $key => $user)
             <tr>
-                <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->created_at }}</td>
-                <td>{{ $user->updated_at }}</td>
                 <td>
                     <button class="btn btn-success">Edit</button>
                     <button class="btn btn-danger">Delete</button>
@@ -38,7 +32,7 @@
             </tr>
             @endforeach
         </table>
-
+        {{!! $students->links() !!}}
        @include('script_file')
        @include('add_student_modal')
     </body>
