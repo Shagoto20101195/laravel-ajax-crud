@@ -5,3 +5,4 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/', [HomeController::class, 'add'])->name('add');
+Route::post('/update', [HomeController::class, 'update'])->name('update');

@@ -38,6 +38,7 @@
             });
         });
 
+        // Click edit button to view edit form
         $('.update_student').click(function(event)
         {
             event.preventDefault();
@@ -47,6 +48,37 @@
             $('#update_id').val(id);
             $('#update_name').val(name);
             $('#update_email').val(email);
+        });
+
+        // Update data
+        $('.update_student_data').click(function(event)
+        {
+            event.preventDefault();
+            var id = $('#update_id').val();
+            var name = $('#update_name').val();
+            var email = $('#update_email').val();
+            $.ajax({
+                url: "{{ route('update') }}",
+                method: "POST",
+                data: {
+                    id: id,
+                    name: name,
+                    email: email
+                },
+                success: function(response) {
+                    alert('Data updated successfully');
+                    $('#updateModal').modal('hide');
+                    $('.table').load(location.href + ' .table');
+                },
+                error: function(response) {
+                    var errors = response.responseJSON.errors;
+                    var errMsg = '';
+                    $.each(errors, function(key, value) {
+                        errMsg += '<p class="text-danger">' + value + '</p>';
+                    });
+                    $('.errMsg').html(errMsg);
+                }
+            });
         });
     });
 </script>

@@ -33,6 +33,30 @@ class HomeController extends Controller
         $student->email = $request->email;
         $student->save();
 
-        return redirect()->route('home')->with('success', 'Message sent successfully!');
+        return response()->json(["status" => "success"]);
+        //return redirect()->route('home')->with('success', 'Message sent successfully!');
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate(
+            [
+            'name' => 'required',
+            'email' => 'required|email|unique:students,email'
+            ],
+            [
+                'name.required' => 'Name is required',
+                'email.required' => 'Email is required',
+                'email.email' => 'Email is invalid',
+            ]
+        );
+
+        Student::where('id', $request->id)->update([
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+
+        return response()->json(["status" => "success"]);
+        //return redirect()->route('home')->with('success', 'Message sent successfully!');
     }
 }
