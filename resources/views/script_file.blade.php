@@ -37,5 +37,16 @@
                 }
             });
         });
+
+        $('.update_student').click(function(event)
+        {
+            event.preventDefault();
+            var id = $(this).data('id');
+            var name = $(this).data('name');
+            var email = $(this).data('email');
+            $('#update_id').val(id);
+            $('#update_name').val(name);
+            $('#update_email').val(email);
+        });
     });
 </script>

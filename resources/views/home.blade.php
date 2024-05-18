@@ -26,7 +26,13 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <button class="btn btn-success">Edit</button>
+                    <a href="" 
+                    class="btn btn-success update_student" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#updateModal"
+                    data-id="{{ $user->id }}"
+                    data-name="{{ $user->name }}"
+                    data-email="{{ $user->email }}">Edit</a>
                     <button class="btn btn-danger">Delete</button>
                 </td>
             </tr>
@@ -35,5 +41,6 @@
         {{!! $students->links() !!}}
        @include('script_file')
        @include('add_student_modal')
+       @include('update_student_modal')
     </body>
 </html>
