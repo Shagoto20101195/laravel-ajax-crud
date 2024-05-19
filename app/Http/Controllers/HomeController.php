@@ -59,4 +59,11 @@ class HomeController extends Controller
         return response()->json(["status" => "success"]);
         //return redirect()->route('home')->with('success', 'Message sent successfully!');
     }
+
+    public function delete(Request $request)
+    {
+        Student::where('id', $request->id)->delete();
+        return response()->json(["status" => "success"]);
+        //return redirect()->route('home')->with('success', 'Message sent successfully!');
+    }
 }
