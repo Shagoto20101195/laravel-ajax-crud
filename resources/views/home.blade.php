@@ -33,7 +33,10 @@
                     data-id="{{ $user->id }}"
                     data-name="{{ $user->name }}"
                     data-email="{{ $user->email }}">Edit</a>
-                    <button class="btn btn-danger">Delete</button>
+
+                    <a href="" 
+                    class="btn btn-danger delete_student" 
+                    data-id="{{ $user->id }}">Delete</a>
                 </td>
             </tr>
             @endforeach

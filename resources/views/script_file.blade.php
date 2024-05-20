@@ -80,5 +80,30 @@
                 }
             });
         });
+
+        // Delete data
+        $('.delete_student').click(function(event)
+        {
+            event.preventDefault();
+            var id = $(this).data('id');
+            
+            if(confirm('Are you sure you want to delete this student?'))
+            {
+                $.ajax({
+                    url: "{{ route('delete') }}",
+                    method: "POST",
+                    data: {
+                        id: id,
+                    },
+                    success: function(response) {
+                        if(response.status == "success")
+                        {
+                            alert('Student deleted successfully');
+                            $('.table').load(location.href + ' .table');
+                        }
+                    }
+                });
+            }
+        });
     });
 </script>
