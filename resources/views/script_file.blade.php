@@ -1,5 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 <script>
     $.ajaxSetup({
         headers: {
@@ -26,6 +27,25 @@
                     $('#addModal').modal('hide');
                     $('#addStudent')[0].reset();
                     $('.table').load(location.href + ' .table');
+                    Command: toastr["success"]("Added!", "Success")
+
+                            toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": true,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                            }
                 },
                 error: function(response) {
                     var errors = response.responseJSON.errors;
@@ -69,6 +89,25 @@
                     alert('Data updated successfully');
                     $('#updateModal').modal('hide');
                     $('.table').load(location.href + ' .table');
+                    Command: toastr["success"]("Updated!", "Success")
+
+                    toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                    }
                 },
                 error: function(response) {
                     var errors = response.responseJSON.errors;
@@ -100,6 +139,25 @@
                         {
                             alert('Student deleted successfully');
                             $('.table').load(location.href + ' .table');
+                            Command: toastr["success"]("Deleted!", "Success")
+
+                            toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": true,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                            }
                         }
                     }
                 });
